@@ -22,7 +22,7 @@
       }
 
       canvas {
-        transform: rotate(45deg) scale(0.5);
+        transform: rotate(45deg) scale(0.6);
       }
 
       .illo {
@@ -44,6 +44,20 @@
         z-index: 1;
         background: transparent;
         width: 100%;
+        -webkit-mask-image: linear-gradient(
+          to right,
+          transparent,
+          black 15%,
+          black 85%,
+          transparent
+        );
+        mask-image: linear-gradient(
+          to right,
+          transparent,
+          black 15%,
+          black 85%,
+          transparent
+        );
       }
 
       .marquee-content {
