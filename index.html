@@ -4,16 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Turtle Labs</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap"
+      rel="stylesheet"
+    />
     <style>
       html {
         height: 100%;
       }
 
       body {
-        background: #222;
+        background: #212121;
         min-height: 100%;
         margin: 0;
         overflow: hidden;
+        position: relative;
       }
 
       canvas {
@@ -25,13 +30,63 @@
         width: 100%;
         height: 100%;
         cursor: move;
+        position: relative;
+        z-index: 2;
+      }
+
+      .marquee-container {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        overflow: hidden;
+        z-index: 1;
+        background: transparent;
+        width: 100%;
+      }
+
+      .marquee-content {
+        display: flex;
+        width: max-content;
+      }
+
+      .marquee {
+        white-space: nowrap;
+        font-family: "JetBrains Mono", monospace;
+        color: white;
+        font-size: 8rem;
+        text-transform: uppercase;
+        opacity: 0.18;
+        animation: marquee 40s linear infinite;
+        will-change: transform;
+      }
+
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
       }
     </style>
   </head>
   <body>
     <canvas class="illo"></canvas>
+    <div class="marquee-container">
+      <div class="marquee-content">
+        <div class="marquee">
+          Websites · Apps · Branding · Websites · Apps · Branding · Websites ·
+          Apps · Branding · Websites · Apps · Branding ·&nbsp;
+        </div>
+        <div class="marquee" aria-hidden="true">
+          Websites · Apps · Branding · Websites · Apps · Branding · Websites ·
+          Apps · Branding · Websites · Apps · Branding ·&nbsp;
+        </div>
+      </div>
+    </div>
     <script src="https://unpkg.com/zdog@1/dist/zdog.dist.min.js"></script>
-
     <script src="script.js"></script>
   </body>
 </html>
